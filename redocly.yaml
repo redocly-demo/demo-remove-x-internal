@@ -1,0 +1,36 @@
+apis:
+  internal@latest:
+    root: ./openapi.yaml
+    lint:
+      decorators:
+        info-description-override:
+          filePath: ./internal.info-description.md
+    features.openapi:
+      generateCodeSamples:
+        languages:
+          - lang: curl
+          - lang: Node.js
+          - lang: PHP
+      theme:
+        typography:
+          heading2:
+            color: red
+  external@latest:
+    root: ./openapi.yaml
+    lint:
+      decorators:
+        remove-x-internal: on
+    features.openapi:
+      generateCodeSamples:
+        languages:
+          - lang: curl
+          - lang: JavaScript
+          - lang: Python
+lint:
+  extends:
+    - minimal
+
+features.openapi:
+  schemaExpansionLevel: '2'
+  expandResponses: '200'
+
