@@ -26,6 +26,26 @@ apis:
           - lang: curl
           - lang: JavaScript
           - lang: Python
+  external@v2:
+    root: ./openapi.yaml
+    lint:
+      decorators:
+        remove-x-internal: on
+    features.openapi:
+      generateCodeSamples:
+        languages:
+          - lang: curl
+          - lang: Go
+  internal@v2:
+    root: ./openapi.yaml
+    lint:
+      decorators:
+        remove-x-internal: off
+    features.openapi:
+      generateCodeSamples:
+        languages:
+          - lang: curl
+          - lang: Ruby
 lint:
   extends:
     - minimal
